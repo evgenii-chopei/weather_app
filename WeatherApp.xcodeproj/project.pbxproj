@@ -12,6 +12,15 @@
 		1660DB95215D11230009B078 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1660DB93215D11230009B078 /* Main.storyboard */; };
 		1660DB97215D11250009B078 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1660DB96215D11250009B078 /* Assets.xcassets */; };
 		1660DB9A215D11250009B078 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1660DB98215D11250009B078 /* LaunchScreen.storyboard */; };
+		16D7C1DB215F9E1200CE7E16 /* GeneralweatherDefaultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D7C1D1215F9E1200CE7E16 /* GeneralweatherDefaultViewController.swift */; };
+		16D7C1DC215F9E1200CE7E16 /* GeneralweatherDefaultInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D7C1D2215F9E1200CE7E16 /* GeneralweatherDefaultInteractor.swift */; };
+		16D7C1DD215F9E1200CE7E16 /* GeneralweatherDefaultBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D7C1D3215F9E1200CE7E16 /* GeneralweatherDefaultBuilder.swift */; };
+		16D7C1DE215F9E1200CE7E16 /* GeneralweatherDefaultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D7C1D4215F9E1200CE7E16 /* GeneralweatherDefaultPresenter.swift */; };
+		16D7C1DF215F9E1200CE7E16 /* GeneralweatherDefaultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D7C1D5215F9E1200CE7E16 /* GeneralweatherDefaultRouter.swift */; };
+		16D7C1E0215F9E1200CE7E16 /* GeneralweatherPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D7C1D7215F9E1200CE7E16 /* GeneralweatherPresenter.swift */; };
+		16D7C1E1215F9E1200CE7E16 /* GeneralweatherInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D7C1D8215F9E1200CE7E16 /* GeneralweatherInteractor.swift */; };
+		16D7C1E2215F9E1200CE7E16 /* GeneralweatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D7C1D9215F9E1200CE7E16 /* GeneralweatherViewController.swift */; };
+		16D7C1E3215F9E1200CE7E16 /* GeneralweatherRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D7C1DA215F9E1200CE7E16 /* GeneralweatherRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +31,15 @@
 		1660DB96215D11250009B078 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1660DB99215D11250009B078 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1660DB9B215D11250009B078 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16D7C1D1215F9E1200CE7E16 /* GeneralweatherDefaultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralweatherDefaultViewController.swift; sourceTree = "<group>"; };
+		16D7C1D2215F9E1200CE7E16 /* GeneralweatherDefaultInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralweatherDefaultInteractor.swift; sourceTree = "<group>"; };
+		16D7C1D3215F9E1200CE7E16 /* GeneralweatherDefaultBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralweatherDefaultBuilder.swift; sourceTree = "<group>"; };
+		16D7C1D4215F9E1200CE7E16 /* GeneralweatherDefaultPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralweatherDefaultPresenter.swift; sourceTree = "<group>"; };
+		16D7C1D5215F9E1200CE7E16 /* GeneralweatherDefaultRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralweatherDefaultRouter.swift; sourceTree = "<group>"; };
+		16D7C1D7215F9E1200CE7E16 /* GeneralweatherPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralweatherPresenter.swift; sourceTree = "<group>"; };
+		16D7C1D8215F9E1200CE7E16 /* GeneralweatherInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralweatherInteractor.swift; sourceTree = "<group>"; };
+		16D7C1D9215F9E1200CE7E16 /* GeneralweatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralweatherViewController.swift; sourceTree = "<group>"; };
+		16D7C1DA215F9E1200CE7E16 /* GeneralweatherRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralweatherRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +72,12 @@
 		1660DB8E215D11230009B078 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				16BE2846215ECF3D00F7413D /* Extensions */,
+				16BE2845215ECF3300F7413D /* Models */,
+				16BE2844215ECF2900F7413D /* Helpers */,
+				16B49DDD215EA55600135E56 /* Resources */,
+				16B49DDC215EA49900135E56 /* Localization */,
+				16B49DDB215EA48100135E56 /* Scenes */,
 				1660DB8F215D11230009B078 /* AppDelegate.swift */,
 				1660DB91215D11230009B078 /* ViewController.swift */,
 				1660DB93215D11230009B078 /* Main.storyboard */,
@@ -62,6 +86,89 @@
 				1660DB9B215D11250009B078 /* Info.plist */,
 			);
 			path = WeatherApp;
+			sourceTree = "<group>";
+		};
+		16B49DDB215EA48100135E56 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				16D7C1CE215F9E1200CE7E16 /* Generalweather */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		16B49DDC215EA49900135E56 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		16B49DDD215EA55600135E56 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		16BE2844215ECF2900F7413D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		16BE2845215ECF3300F7413D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		16BE2846215ECF3D00F7413D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		16D7C1CE215F9E1200CE7E16 /* Generalweather */ = {
+			isa = PBXGroup;
+			children = (
+				16D7C1CF215F9E1200CE7E16 /* Implementations */,
+				16D7C1D6215F9E1200CE7E16 /* Interfaces */,
+			);
+			path = Generalweather;
+			sourceTree = "<group>";
+		};
+		16D7C1CF215F9E1200CE7E16 /* Implementations */ = {
+			isa = PBXGroup;
+			children = (
+				16D7C1D0215F9E1200CE7E16 /* Default */,
+			);
+			path = Implementations;
+			sourceTree = "<group>";
+		};
+		16D7C1D0215F9E1200CE7E16 /* Default */ = {
+			isa = PBXGroup;
+			children = (
+				16D7C1D1215F9E1200CE7E16 /* GeneralweatherDefaultViewController.swift */,
+				16D7C1D2215F9E1200CE7E16 /* GeneralweatherDefaultInteractor.swift */,
+				16D7C1D3215F9E1200CE7E16 /* GeneralweatherDefaultBuilder.swift */,
+				16D7C1D4215F9E1200CE7E16 /* GeneralweatherDefaultPresenter.swift */,
+				16D7C1D5215F9E1200CE7E16 /* GeneralweatherDefaultRouter.swift */,
+			);
+			path = Default;
+			sourceTree = "<group>";
+		};
+		16D7C1D6215F9E1200CE7E16 /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				16D7C1D7215F9E1200CE7E16 /* GeneralweatherPresenter.swift */,
+				16D7C1D8215F9E1200CE7E16 /* GeneralweatherInteractor.swift */,
+				16D7C1D9215F9E1200CE7E16 /* GeneralweatherViewController.swift */,
+				16D7C1DA215F9E1200CE7E16 /* GeneralweatherRouter.swift */,
+			);
+			path = Interfaces;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +244,15 @@
 			files = (
 				1660DB92215D11230009B078 /* ViewController.swift in Sources */,
 				1660DB90215D11230009B078 /* AppDelegate.swift in Sources */,
+				16D7C1DC215F9E1200CE7E16 /* GeneralweatherDefaultInteractor.swift in Sources */,
+				16D7C1DF215F9E1200CE7E16 /* GeneralweatherDefaultRouter.swift in Sources */,
+				16D7C1DD215F9E1200CE7E16 /* GeneralweatherDefaultBuilder.swift in Sources */,
+				16D7C1DE215F9E1200CE7E16 /* GeneralweatherDefaultPresenter.swift in Sources */,
+				16D7C1E2215F9E1200CE7E16 /* GeneralweatherViewController.swift in Sources */,
+				16D7C1E0215F9E1200CE7E16 /* GeneralweatherPresenter.swift in Sources */,
+				16D7C1E1215F9E1200CE7E16 /* GeneralweatherInteractor.swift in Sources */,
+				16D7C1E3215F9E1200CE7E16 /* GeneralweatherRouter.swift in Sources */,
+				16D7C1DB215F9E1200CE7E16 /* GeneralweatherDefaultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
