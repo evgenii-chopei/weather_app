@@ -10,6 +10,10 @@
 		10CF48B63B82C6A23F393462 /* Pods_WeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7FFB04A39975E166AAF36D8 /* Pods_WeatherApp.framework */; };
 		165B78FF2160E23100FA626E /* Condition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165B78FE2160E23100FA626E /* Condition.swift */; };
 		165B790321614E3B00FA626E /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165B790221614E3B00FA626E /* Endpoint.swift */; };
+		165B7905216157ED00FA626E /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165B7904216157ED00FA626E /* Network.swift */; };
+		165B7909216158D300FA626E /* WeatherAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165B7908216158D300FA626E /* WeatherAPIService.swift */; };
+		165B790B2161596A00FA626E /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165B790A2161596A00FA626E /* City.swift */; };
+		165B790E21615A6400FA626E /* WeatherEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165B790D21615A6400FA626E /* WeatherEndpoint.swift */; };
 		1660DB90215D11230009B078 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1660DB8F215D11230009B078 /* AppDelegate.swift */; };
 		1660DB92215D11230009B078 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1660DB91215D11230009B078 /* ViewController.swift */; };
 		1660DB95215D11230009B078 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1660DB93215D11230009B078 /* Main.storyboard */; };
@@ -35,6 +39,10 @@
 		14637F3BE0FEF9C33706DF7D /* Pods-WeatherApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherApp/Pods-WeatherApp.debug.xcconfig"; sourceTree = "<group>"; };
 		165B78FE2160E23100FA626E /* Condition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Condition.swift; sourceTree = "<group>"; };
 		165B790221614E3B00FA626E /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		165B7904216157ED00FA626E /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		165B7908216158D300FA626E /* WeatherAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPIService.swift; sourceTree = "<group>"; };
+		165B790A2161596A00FA626E /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		165B790D21615A6400FA626E /* WeatherEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherEndpoint.swift; sourceTree = "<group>"; };
 		1660DB8C215D11230009B078 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1660DB8F215D11230009B078 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1660DB91215D11230009B078 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -75,9 +83,36 @@
 		165B790021614E0600FA626E /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				165B790221614E3B00FA626E /* Endpoint.swift */,
+				165B79072161589F00FA626E /* Implementation */,
+				165B79062161589500FA626E /* Protocol */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		165B79062161589500FA626E /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				165B790221614E3B00FA626E /* Endpoint.swift */,
+				165B7904216157ED00FA626E /* Network.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		165B79072161589F00FA626E /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				165B790C21615A1900FA626E /* Endpoints */,
+				165B7908216158D300FA626E /* WeatherAPIService.swift */,
+			);
+			path = Implementation;
+			sourceTree = "<group>";
+		};
+		165B790C21615A1900FA626E /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				165B790D21615A6400FA626E /* WeatherEndpoint.swift */,
+			);
+			path = Endpoints;
 			sourceTree = "<group>";
 		};
 		1660DB83215D11230009B078 = {
@@ -154,6 +189,7 @@
 				16D7C1F5215FF5BA00CE7E16 /* User.swift */,
 				16C7CB5D21603DCC006373A2 /* CurrentWeather.swift */,
 				165B78FE2160E23100FA626E /* Condition.swift */,
+				165B790A2161596A00FA626E /* City.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -252,6 +288,7 @@
 				1660DB89215D11230009B078 /* Frameworks */,
 				1660DB8A215D11230009B078 /* Resources */,
 				61505D074D684173615A8819 /* [CP] Embed Pods Frameworks */,
+				165B790F2161780200FA626E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -327,6 +364,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		165B790F2161780200FA626E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "KEYWORDS=\"TODO|FIXME|\\?\\?\\?:|\\!\\!\\!:\"\nfind \"${SRCROOT}\" \\( -name \"*.swift\" \\) -print0 | \\\nxargs -0 egrep --with-filename --line-number --only-matching \"($KEYWORDS).*\\$\" | \\\nperl -p -e \"s/($KEYWORDS)/ warning: \\$1/\"\n";
+		};
 		61505D074D684173615A8819 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -357,6 +411,7 @@
 				16D7C1F4215FF50200CE7E16 /* WeatherApp.xcdatamodeld in Sources */,
 				1660DB90215D11230009B078 /* AppDelegate.swift in Sources */,
 				16C7CB6B216049DD006373A2 /* CodingUserInfoKey+Extension.swift in Sources */,
+				165B7909216158D300FA626E /* WeatherAPIService.swift in Sources */,
 				16D7C1DC215F9E1200CE7E16 /* GeneralweatherDefaultInteractor.swift in Sources */,
 				16D7C1DF215F9E1200CE7E16 /* GeneralweatherDefaultRouter.swift in Sources */,
 				16D7C1DD215F9E1200CE7E16 /* GeneralweatherDefaultBuilder.swift in Sources */,
@@ -364,12 +419,15 @@
 				16D7C1F6215FF5BA00CE7E16 /* User.swift in Sources */,
 				165B790321614E3B00FA626E /* Endpoint.swift in Sources */,
 				16D7C1EE215FEE7000CE7E16 /* CoreDataModelService.swift in Sources */,
+				165B7905216157ED00FA626E /* Network.swift in Sources */,
 				16D7C1E2215F9E1200CE7E16 /* GeneralweatherViewController.swift in Sources */,
 				16D7C1E0215F9E1200CE7E16 /* GeneralweatherPresenter.swift in Sources */,
 				16D7C1E1215F9E1200CE7E16 /* GeneralweatherInteractor.swift in Sources */,
 				165B78FF2160E23100FA626E /* Condition.swift in Sources */,
 				16D7C1E3215F9E1200CE7E16 /* GeneralweatherRouter.swift in Sources */,
+				165B790E21615A6400FA626E /* WeatherEndpoint.swift in Sources */,
 				16D7C1DB215F9E1200CE7E16 /* GeneralweatherDefaultViewController.swift in Sources */,
+				165B790B2161596A00FA626E /* City.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,7 +577,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T66H379XEX;
 				INFOPLIST_FILE = WeatherApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.evgenii.chopei.WeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -535,7 +596,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T66H379XEX;
 				INFOPLIST_FILE = WeatherApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.evgenii.chopei.WeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;

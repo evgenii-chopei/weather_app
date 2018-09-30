@@ -14,14 +14,14 @@ public class CurrentWeather: NSManagedObject, Codable {
     
     @NSManaged public var updateTime: String?
     @NSManaged public var updateTimestamp: Int32
-    @NSManaged public var temp_c: Int16
-    @NSManaged public var feelslike_c: Int16
+    @NSManaged public var temp_c: Float
+    @NSManaged public var feelslike_c: Float
     @NSManaged public var condition: Condition?
-    @NSManaged public var wind_kph: Int32
+    @NSManaged public var wind_kph: Float
     @NSManaged public var wind_degree: Int16
     @NSManaged public var wind_dir: String?
-    @NSManaged public var pressure_mb: Int64
-    @NSManaged public var precip_mm: Int64
+    @NSManaged public var pressure_mb: Float
+    @NSManaged public var precip_mm: Float
     @NSManaged public var humidity: Int16
     @NSManaged public var cloud: Int16
     @NSManaged public var isDay: Int16
@@ -33,6 +33,10 @@ public class CurrentWeather: NSManagedObject, Codable {
         case updateTimestamp = "last_updated_epoch"
         case isDay = "is_day"
         case temp_c, feelslike_c, wind_kph, wind_degree, wind_dir, pressure_mb, precip_mm, humidity, cloud, condition
+    }
+    
+    enum RootKeys: String, CodingKey {
+        case current
     }
     
     //MARK: - Encodable
@@ -66,17 +70,20 @@ public class CurrentWeather: NSManagedObject, Codable {
         }
         self.init(entity: entity, insertInto: managedObjectContext)
         
-        let values = try decoder.container(keyedBy: CodingKeys.self)
+        
+        let root = try decoder.container(keyedBy: RootKeys.self)
+        
+        let values = try root.nestedContainer(keyedBy: CodingKeys.self, forKey: .current)
         updateTime = try values.decode(String.self, forKey: .updateTime)
         updateTimestamp = try values.decode(Int32.self, forKey: .updateTimestamp)
-        temp_c = try values.decode(Int16.self, forKey: .temp_c)
-        feelslike_c = try values.decode(Int16.self, forKey: .feelslike_c)
+        temp_c = try values.decode(Float.self, forKey: .temp_c)
+        feelslike_c = try values.decode(Float.self, forKey: .feelslike_c)
         condition = try values.decode(Condition.self, forKey: .condition)
-        wind_kph = try values.decode(Int32.self, forKey: .wind_kph)
+        wind_kph = try values.decode(Float.self, forKey: .wind_kph)
         wind_degree = try values.decode(Int16.self, forKey: .wind_degree)
         wind_dir = try values.decode(String.self, forKey: .wind_dir)
-        pressure_mb = try values.decode(Int64.self, forKey: .pressure_mb)
-        precip_mm = try values.decode(Int64.self, forKey: .precip_mm)
+        pressure_mb = try values.decode(Float.self, forKey: .pressure_mb)
+        precip_mm = try values.decode(Float.self, forKey: .precip_mm)
         humidity = try values.decode(Int16.self, forKey: .humidity)
         cloud = try values.decode(Int16.self, forKey: .cloud)
         isDay = try values.decode(Int16.self, forKey: .isDay)

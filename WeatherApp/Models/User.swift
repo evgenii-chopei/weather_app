@@ -21,4 +21,6 @@ extension User {
     func fetchRequest() -> NSFetchRequest<User> {
         return NSFetchRequest(entityName: "User")
     }
+   
+    
 }

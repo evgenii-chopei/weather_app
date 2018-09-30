@@ -14,6 +14,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        WeatherAPIService.currentWeatherFor("Kiev") { (weather) in
+            print(weather)
+        }
       
     }
 }
