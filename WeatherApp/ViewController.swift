@@ -12,12 +12,13 @@ import CoreData
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    let context = CoreDataModelService.mainContext
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
-        WeatherAPIService.currentWeatherFor("Kiev") { (weather) in
-            print(weather)
-        }
-      
+        
+        return
+         self.present(GeneralweatherDefaultBuilder().main(), animated: true, completion: nil)
     }
 }

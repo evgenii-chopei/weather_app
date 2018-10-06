@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import CoreData
 
-typealias CitiesClosure = ((_ cities:[City]) -> Void)
+typealias CitiesClosure = ((_ cities:[CityPrediction]) -> Void)
 typealias CurrentWeatherClosure = ((_ currentWeather: CurrentWeather) -> Void)
+typealias ForecastClosure = ((_ forecasts: Forecast) -> Void)
 
 enum WeatherAPIService {
     
@@ -22,6 +24,12 @@ enum WeatherAPIService {
     static func currentWeatherFor(_ city: String, response: @escaping CurrentWeatherClosure) {
         Network().request(WeatherEndpoint.currentWeather(city)) { (currentWeather) in
             response(currentWeather)
+        }
+    }
+    
+    static func forecastWeatherFor(_ city: String, days: Int = 3, context: NSManagedObjectContext, response: @escaping ForecastClosure) {
+        Network().request(WeatherEndpoint.forecastWeather(city, days: days), in: context) { (forecasts) in
+            response(forecasts)
         }
     }
     

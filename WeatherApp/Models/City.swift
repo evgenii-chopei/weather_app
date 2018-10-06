@@ -26,7 +26,7 @@ class City: NSManagedObject, Codable {
     
     //MARK: Codable
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case id, country,lat,lon,name,region
     }
     
@@ -58,5 +58,17 @@ class City: NSManagedObject, Codable {
         name = try values.decode(String.self, forKey: .name)
         region = try values.decode(String.self, forKey: .region)
         country = try values.decode(String.self, forKey: .country)
+    }
+    
+    convenience init(cityPrediction: CityPrediction, context: NSManagedObjectContext) {
+        let entity = NSEntityDescription.entity(forEntityName: "City", in: context)
+        self.init(entity: entity!, insertInto: context)
+        id = cityPrediction.id
+        lat = cityPrediction.lat
+        lon = cityPrediction.lon
+        name = cityPrediction.name
+        region = cityPrediction.region
+        country = cityPrediction.country
+        
     }
 }

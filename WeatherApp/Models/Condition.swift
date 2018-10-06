@@ -16,7 +16,7 @@ public class Condition: NSManagedObject, Codable {
     @NSManaged public var icon: String?
     @NSManaged public var code: Int32
     
-    enum CodingKeys: String, CodingKey {
+   private enum CodingKeys: String, CodingKey {
         case text, icon, code
     }
     

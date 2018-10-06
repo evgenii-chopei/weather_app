@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import CoreData
 
 public struct Network{
     
@@ -19,20 +20,24 @@ public struct Network{
         return session
     }()
     
-    public func request<T:Codable,E:URLRequestConvertible>(_ endpoint:E,  responce: @escaping (_ object:T)->Void) {
+    public func request<T:Codable,E:URLRequestConvertible>(_ endpoint:E, in context: NSManagedObjectContext? = nil, responce: @escaping (_ object:T)->Void) {
         Network.publicSession.request(endpoint).responseData  {  data in
             do {
                 guard let d = data.data else {
                     return
                 }
-                //TODO: passing context
+                let obj = try JSONSerialization.jsonObject(with: data.data!, options: [])
+                print(obj)
+                //TODO: passing context?
                 let decoder = JSONDecoder()
-                decoder.userInfo[CodingUserInfoKey.context!] = CoreDataModelService.mainContext
+                if let context = context {
+                     decoder.userInfo[CodingUserInfoKey.context!] = context
+                }
                 responce(try decoder.decode(T.self, from: d))
             } catch {
                 //TODO: log
                 debugPrint(error)
-                fatalError("API cnahged")
+                fatalError("API changed")
                 
             }
         }

@@ -28,14 +28,14 @@ public class CurrentWeather: NSManagedObject, Codable {
     
     //MARK: Coding Keys
     
-    enum CodingKeys: String, CodingKey {
+   private enum CodingKeys: String, CodingKey {
         case updateTime = "last_updated"
         case updateTimestamp = "last_updated_epoch"
         case isDay = "is_day"
         case temp_c, feelslike_c, wind_kph, wind_degree, wind_dir, pressure_mb, precip_mm, humidity, cloud, condition
     }
     
-    enum RootKeys: String, CodingKey {
+   private enum RootKeys: String, CodingKey {
         case current
     }
     

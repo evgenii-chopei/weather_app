@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14315.18" systemVersion="18A391" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Astro" representedClassName="Astro" syncable="YES">
+        <attribute name="moonrise" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="moonset" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sunrise" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sunset" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="City" representedClassName="City" syncable="YES">
         <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -29,13 +35,32 @@
         <attribute name="wind_kph" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="condition" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Condition" syncable="YES"/>
     </entity>
+    <entity name="Forecast" representedClassName="Forecast" syncable="YES">
+        <relationship name="forecastDays" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="ForecastDay" syncable="YES"/>
+    </entity>
+    <entity name="ForecastDay" representedClassName="ForecastDay" syncable="YES">
+        <attribute name="avghumidity" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="avgtemp_c" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="avgvis_km" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date_epoch" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="maxtemp_c" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="maxwind_kph" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="totalprecip_mm" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="uv" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="astro" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Astro" syncable="YES"/>
+        <relationship name="condition" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Condition" syncable="YES"/>
+    </entity>
     <entity name="User" representedClassName="User" syncable="YES">
         <relationship name="cities" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="City" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Astro" positionX="-36" positionY="144" width="128" height="105"/>
         <element name="City" positionX="-63" positionY="-9" width="128" height="150"/>
         <element name="Condition" positionX="-45" positionY="108" width="128" height="90"/>
         <element name="CurrentWeather" positionX="-36" positionY="9" width="128" height="240"/>
+        <element name="ForecastDay" positionX="-45" positionY="99" width="128" height="210"/>
         <element name="User" positionX="-63" positionY="-18" width="128" height="60"/>
+        <element name="Forecast" positionX="-18" positionY="162" width="128" height="60"/>
     </elements>
 </model>

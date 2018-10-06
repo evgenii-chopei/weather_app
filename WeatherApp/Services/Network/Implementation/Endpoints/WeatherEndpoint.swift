@@ -15,7 +15,7 @@ enum WeatherEndpoint {
     
     case searchCity(_ text: String)
     case currentWeather(_ cityName: String)
-    case forecastWeather(_ cityName: String)
+    case forecastWeather(_ cityName: String, days: Int)
     
 }
 
@@ -29,8 +29,10 @@ extension WeatherEndpoint: Endpoint {
             
         case .searchCity(let cityName):
             return defaultParameters(cityName)
-        case .forecastWeather(let cityName):
-            return  defaultParameters(cityName)
+        case .forecastWeather(let cityName, let days):
+           var paramenters = defaultParameters(cityName)
+           paramenters["days"] = String(days)
+            return  paramenters
         case .currentWeather(let cityName):
             return defaultParameters(cityName)
         }
