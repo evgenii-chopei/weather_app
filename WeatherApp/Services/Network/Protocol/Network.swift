@@ -26,9 +26,6 @@ public struct Network{
                 guard let d = data.data else {
                     return
                 }
-                let obj = try JSONSerialization.jsonObject(with: data.data!, options: [])
-                print(obj)
-                //TODO: passing context?
                 let decoder = JSONDecoder()
                 if let context = context {
                      decoder.userInfo[CodingUserInfoKey.context!] = context

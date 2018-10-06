@@ -16,9 +16,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        
-        return
+    
          self.present(GeneralweatherDefaultBuilder().main(), animated: true, completion: nil)
     }
 }
