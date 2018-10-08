@@ -46,6 +46,7 @@
         <attribute name="date_epoch" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="maxtemp_c" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="maxwind_kph" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="mintemp_c" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="totalprecip_mm" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="uv" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="astro" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Astro" syncable="YES"/>
@@ -59,8 +60,8 @@
         <element name="City" positionX="-63" positionY="-9" width="128" height="150"/>
         <element name="Condition" positionX="-45" positionY="108" width="128" height="90"/>
         <element name="CurrentWeather" positionX="-36" positionY="9" width="128" height="240"/>
-        <element name="ForecastDay" positionX="-45" positionY="99" width="128" height="210"/>
-        <element name="User" positionX="-63" positionY="-18" width="128" height="60"/>
         <element name="Forecast" positionX="-18" positionY="162" width="128" height="60"/>
+        <element name="ForecastDay" positionX="-45" positionY="99" width="128" height="225"/>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="60"/>
     </elements>
 </model>

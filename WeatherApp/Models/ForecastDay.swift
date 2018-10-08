@@ -17,6 +17,7 @@ class ForecastDay: NSManagedObject, Codable {
     @NSManaged var maxtemp_c: Double
     @NSManaged var avgtemp_c: Double
     @NSManaged var maxwind_kph: Double
+    @NSManaged var mintemp_c: Double
     @NSManaged var totalprecip_mm: Double
     @NSManaged var avgvis_km: Double
     @NSManaged var avghumidity: Double
@@ -27,16 +28,12 @@ class ForecastDay: NSManagedObject, Codable {
     //MARK: Codable
     
     private enum CodingKeys: String, CodingKey {
-        case date,date_epoch,maxtemp_c,avgtemp_c, maxwind_kph, totalprecip_mm, avgvis_km, avghumidity, condition, astro, uv, day
+        case date,date_epoch,maxtemp_c,avgtemp_c, maxwind_kph,mintemp_c, totalprecip_mm, avgvis_km, avghumidity, condition, astro, uv, day
     }
-    private enum CodingKeysDay: String,CodingKey {
-        case maxtemp_c,avgtemp_c, maxwind_kph, totalprecip_mm, avgvis_km, avghumidity, condition,uv
-    }
-    
+
     private enum RootKeys: String, CodingKey {
         case forecast, forecastday
     }
-    
     
     func encode(to encoder: Encoder) throws {
         
@@ -52,6 +49,7 @@ class ForecastDay: NSManagedObject, Codable {
         try container.encode(condition, forKey: .condition)
         try container.encode(astro, forKey: .astro)
         try container.encode(uv, forKey: .uv)
+        try container.encode(mintemp_c, forKey: .mintemp_c)
 
     }
     
@@ -68,7 +66,7 @@ class ForecastDay: NSManagedObject, Codable {
         date_epoch = try values.decode(Double.self, forKey: .date_epoch)
         astro = try values.decode(Astro.self, forKey: .astro)
         
-        let dayValues = try values.nestedContainer(keyedBy: CodingKeysDay.self, forKey: .day)
+        let dayValues = try values.nestedContainer(keyedBy: CodingKeys.self, forKey: .day)
         maxtemp_c = try dayValues.decode(Double.self, forKey: .maxtemp_c)
         avgtemp_c = try dayValues.decode(Double.self, forKey: .avgtemp_c)
         condition = try dayValues.decode(Condition.self, forKey: .condition)
@@ -76,6 +74,7 @@ class ForecastDay: NSManagedObject, Codable {
         totalprecip_mm = try dayValues.decode(Double.self, forKey: .totalprecip_mm)
         avgvis_km = try dayValues.decode(Double.self, forKey: .avgvis_km)
         uv = try dayValues.decode(Double.self, forKey: .uv)
+        mintemp_c = try dayValues.decode(Double.self, forKey: .mintemp_c)
     }
 }
 

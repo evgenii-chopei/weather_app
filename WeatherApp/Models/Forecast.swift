@@ -26,7 +26,7 @@ class Forecast: NSManagedObject, Codable {
     func encode(to encoder: Encoder) throws {
         
         var container = encoder.container(keyedBy: CodingKeys.self)
-    //    try container.encode(forecastDays, forKey: .forecastDays)
+       // try container.encode(forecastDays, forKey: .forecastDays)
        
     }
     
@@ -40,8 +40,6 @@ class Forecast: NSManagedObject, Codable {
         
         let root = try decoder.container(keyedBy: RootKeys.self)
         let sub = try root.nestedContainer(keyedBy: CodingKeys.self, forKey: .forecast)
-        
-     //   let values = try sub.nestedContainer(keyedBy: CodingKeys.self, forKey: .forecastDays)
         forecastDays = NSOrderedSet(array:try sub.decode([ForecastDay].self, forKey: .forecastDays))
         
     }
